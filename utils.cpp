@@ -26,3 +26,7 @@ char random_job() {
 int random_req_time(char job) {
     return 50 + (mersenne_engine() % 500);
 }
+
+int random_percent() {
+    return (mersenne_engine() % 100);
+}

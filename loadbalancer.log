@@ -1,0 +1,19 @@
+=== Load Balancer Simulation ===
+Logging mode: quiet
+Initial servers: 20
+Runtime cycles: 100000
+Initial queue target: 2000
+Initial requests accepted: 2000
+Initial requests blocked: 0
+=== Simulation Summary ===
+Total clock cycles: 100000
+Requests generated: 12122
+Requests accepted: 12122
+Requests blocked: 0
+Requests completed: 12122
+Requests still queued: 0
+Peak queue size: 2000
+Final active servers: 1
+Servers added: 2
+Servers removed: 21
+Scale-down attempts deferred: 0
