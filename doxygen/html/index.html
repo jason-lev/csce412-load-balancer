@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CSCE412 Load Balancer: Main Page</title>
+<title>CSCE412 Load Balancer: CSCE 412 Load Balancer</title>
 <link rel="icon" href="jlsystems_tiny.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
@@ -89,10 +89,40 @@ $(function(){initNavTree('index.html','',''); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">CSCE412 Load Balancer Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">CSCE 412 Load Balancer </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
+<p>This is an implementation of Project 4 for CSCE 421, a simulation of a load balancer with.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+Description</h1>
+<p>This project implements the load balancer as specified in Project 4 in CSCE 421. A simulation runs in the master load balancer which initializes its child load balancers, specified based on job type. Each load balancer holds web servers and a request queue, and as the simulation runs, the master load balancer routes requests to the load balancers which distributes them onto available servers and scales their servers based on their request queue sizes.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+Getting Started</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+Dependencies</h2>
+<p>g++ - compilation</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+Installing</h2>
+<p>Clone the repository.</p>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Executing program</h2>
+<div class="fragment"><div class="line">make</div>
+<div class="line">./load-balancer</div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Authors</h1>
+<p>Jason Lev</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Version History</h1>
+<ul>
+<li>1.0.0 - revision for class</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Acknowledgments</h1>
+<p>Robert Lightfoot - Professor</p>
+<p>Amran Haroon - TA </p>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->

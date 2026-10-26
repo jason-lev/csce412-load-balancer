@@ -6,14 +6,14 @@ initial_processing_servers=10
 simulation_cycles=100000
 
 # Probability of a new request on each cycle (0-100)
-arrival_percent=6
+arrival_percent=15
 
 # Minimum number of cycles between scaling decisions per pool
 scale_cooldown=10
 
 # Firewall rules: individual addresses or CIDR ranges
-blocked_ranges=192.168.1.0/24,10.0.0.5/32
-# blocked_ranges=192.168.1.0/24,10.0.0.5/32,50.0.0.0/7,52.0.0.0/6,56.0.0.0/5,64.0.0.0/2,128.0.0.0/2,192.0.0.0/3,224.0.0.0/4,240.0.0.0/5,248.0.0.0/6,252.0.0.0/7,254.0.0.0/8,255.0.0.0/32
+# blocked_ranges=192.168.1.0/24,10.0.0.5/32
+blocked_ranges=192.168.1.0/24,10.0.0.5/32,50.0.0.0/7,52.0.0.0/6,56.0.0.0/5,64.0.0.0/2,128.0.0.0/2,192.0.0.0/3,224.0.0.0/4,240.0.0.0/5,248.0.0.0/6,252.0.0.0/7,254.0.0.0/8,255.0.0.0/32
 
 # Verbose logs significant events; quiet prints summaries only
 logging_mode=quiet

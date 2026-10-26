@@ -3017,7 +3017,8 @@ MSCFILE_DIRS           =
 
 
 INPUT                  = . 
-FILE_PATTERNS          = *.h *.cpp
+FILE_PATTERNS          = *.h *.cpp *.md
+USE_MDFILE_AS_MAINPAGE = ./README.md
 RECURSIVE = YES
 EXTRACT_ALL = YES
 OPTIMIZE_OUTPUT_FOR_C = NO

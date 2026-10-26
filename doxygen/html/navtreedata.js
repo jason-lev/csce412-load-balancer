@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "CSCE412 Load Balancer", "index.html", [
+    [ "CSCE 412 Load Balancer", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
