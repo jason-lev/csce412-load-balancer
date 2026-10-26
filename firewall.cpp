@@ -1,9 +1,34 @@
+
+/**
+ * @file firewall.cpp
+ * @brief Implements IPv4 address parsing and CIDR-based firewall filtering.
+ *
+ * Provides functionality for adding blocked IPv4 address ranges and
+ * checking whether a given IP address matches any blocked range.
+ */
+
 #include "firewall.h"
 #include <cstdint>
 #include <sstream>
 
 namespace
 {
+    /**
+     * @brief Parses an IPv4 address into a 32-bit unsigned integer.
+     *
+     * Each octet is validated to ensure it contains between one and
+     * three decimal digits and has a value between 0 and 255.
+     * The four octets are combined into a single 32-bit value.
+     *
+     * @param ip IPv4 address string in dotted-decimal notation.
+     * @param result Reference to the integer that receives the parsed
+     *               address when parsing succeeds.
+     *
+     * @return True if the address is valid; false otherwise.
+     *
+     * @note The function is restricted to this source file through
+     *       the anonymous namespace.
+     */
     bool parseIPv4(const std::string& ip, std::uint32_t& result)
     {
         std::istringstream input(ip);
@@ -37,6 +62,25 @@ namespace
         return !std::getline(input, part, '.');
     }
 
+    /**
+     * @brief Determines whether an IPv4 address matches a CIDR range.
+     *
+     * Accepts either a single IPv4 address or a network address with
+     * a prefix length, such as "192.168.1.0/24". If no prefix is
+     * supplied, the range is treated as a single address (/32).
+     *
+     * The function parses both addresses, constructs a subnet mask
+     * from the prefix length, and compares their masked values.
+     *
+     * @param ip IPv4 address to check.
+     * @param range IPv4 address or CIDR range to match against.
+     *
+     * @return True if the IP address belongs to the specified range;
+     *         false if it does not match or the input is invalid.
+     *
+     * @note This helper is restricted to this source file through
+     *       the anonymous namespace.
+     */
     bool matchesCIDR(const std::string& ip,
                      const std::string& range)
     {
@@ -79,11 +123,33 @@ namespace
     }
 }
 
+/**
+ * @brief Adds an IPv4 address or CIDR range to the firewall block list.
+ *
+ * The supplied range is stored and checked against incoming IP
+ * addresses whenever isBlocked() is called.
+ *
+ * @param range IPv4 address or CIDR range to block.
+ *
+ * @see Firewall::isBlocked()
+ */
 void Firewall::addBlockedRange(const std::string& range)
 {
     blockedRanges.push_back(range);
 }
 
+/**
+ * @brief Checks whether an IPv4 address is blocked by the firewall.
+ *
+ * Iterates through all configured blocked ranges. If the supplied
+ * address matches any range, the function immediately returns true.
+ *
+ * @param ip IPv4 address to check.
+ *
+ * @return True if the address matches a blocked range; false otherwise.
+ *
+ * @see Firewall::addBlockedRange()
+ */
 bool Firewall::isBlocked(const std::string& ip) const
 {
     for (const std::string& range : blockedRanges)

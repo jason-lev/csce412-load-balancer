@@ -1,14 +1,15 @@
-# Default simulation settings
+# Default server count and runtime
 initial_servers=5
 simulation_cycles=1000
 
-# Probability of a new request arriving during each cycle (0-100)
+# Chance of generating a request on each cycle, from 0 to 100
 arrival_percent=10
 
-# Minimum number of cycles between scaling decisions
+# Minimum cycles between scaling checks
 scale_cooldown=10
 
 # Comma-separated IPv4 addresses or CIDR ranges
 blocked_ranges=192.168.1.0/24,10.0.0.5/32
 
-logging_mode=quiet
+# verbose or quiet
+logging_mode=verbose
