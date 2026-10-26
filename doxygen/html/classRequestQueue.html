@@ -94,31 +94,30 @@ $(function(){initNavTree('classRequestQueue.html','','classRequestQueue-members'
 </div><!--header-->
 <div class="contents">
 
-<p>FIFO queue for pending web requests.  
+<p>Stores requests waiting to be assigned to servers.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="requestqueue_8h_source.html">requestqueue.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aeca26def73befd9923d911e05c1b8151" id="r_aeca26def73befd9923d911e05c1b8151"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeca26def73befd9923d911e05c1b8151">enqueue</a> (<a class="el" href="classRequest.html">Request</a> r)</td></tr>
-<tr class="memdesc:aeca26def73befd9923d911e05c1b8151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a request to the back of the queue.  <br /></td></tr>
+<tr class="memitem:a6ebfe8deaaadc3172f69ff5640a3655c" id="r_a6ebfe8deaaadc3172f69ff5640a3655c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ebfe8deaaadc3172f69ff5640a3655c">enqueue</a> (const <a class="el" href="classRequest.html">Request</a> &amp;request)</td></tr>
+<tr class="memdesc:a6ebfe8deaaadc3172f69ff5640a3655c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a request to the back of the queue.  <br /></td></tr>
 <tr class="memitem:ae170f2f285843d363ac003b7263dde95" id="r_ae170f2f285843d363ac003b7263dde95"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classRequest.html">Request</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae170f2f285843d363ac003b7263dde95">dequeue</a> ()</td></tr>
 <tr class="memdesc:ae170f2f285843d363ac003b7263dde95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes and returns the oldest queued request.  <br /></td></tr>
-<tr class="memitem:a10a42d2206616c80907517d3c6ed8245" id="r_a10a42d2206616c80907517d3c6ed8245"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10a42d2206616c80907517d3c6ed8245">isEmpty</a> ()</td></tr>
-<tr class="memdesc:a10a42d2206616c80907517d3c6ed8245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the queue contains no requests.  <br /></td></tr>
-<tr class="memitem:a35b8c47e9856ded7d779f299a6052ce0" id="r_a35b8c47e9856ded7d779f299a6052ce0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35b8c47e9856ded7d779f299a6052ce0">size</a> ()</td></tr>
-<tr class="memdesc:a35b8c47e9856ded7d779f299a6052ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of queued requests.  <br /></td></tr>
+<tr class="memitem:a64c8b54cc30da887d61663e44dece1d5" id="r_a64c8b54cc30da887d61663e44dece1d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64c8b54cc30da887d61663e44dece1d5">isEmpty</a> () const</td></tr>
+<tr class="memdesc:a64c8b54cc30da887d61663e44dece1d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the queue is empty.  <br /></td></tr>
+<tr class="memitem:aa65378257b8f1ad89bd77b96ededea37" id="r_aa65378257b8f1ad89bd77b96ededea37"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa65378257b8f1ad89bd77b96ededea37">size</a> () const</td></tr>
+<tr class="memdesc:aa65378257b8f1ad89bd77b96ededea37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of pending requests.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>FIFO queue for pending web requests. </p>
+<div class="textblock"><p>Stores requests waiting to be assigned to servers. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="ae170f2f285843d363ac003b7263dde95" name="ae170f2f285843d363ac003b7263dde95"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae170f2f285843d363ac003b7263dde95">&#9670;&#160;</a></span>dequeue()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classRequest.html">Request</a> RequestQueue::dequeue </td>
@@ -127,115 +126,101 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Removes and returns the oldest queued request. </p>
+<p>Removes and returns the oldest request.</p>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">std::out_of_range</td><td>If the queue is empty. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The oldest queued request. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The oldest request.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::out_of_range</td><td>If there are no queued requests. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The removed request. </dd></dl>
 
 </div>
 </div>
-<a id="aeca26def73befd9923d911e05c1b8151" name="aeca26def73befd9923d911e05c1b8151"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeca26def73befd9923d911e05c1b8151">&#9670;&#160;</a></span>enqueue()</h2>
+<a id="a6ebfe8deaaadc3172f69ff5640a3655c" name="a6ebfe8deaaadc3172f69ff5640a3655c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ebfe8deaaadc3172f69ff5640a3655c">&#9670;&#160;</a></span>enqueue()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void RequestQueue::enqueue </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classRequest.html">Request</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classRequest.html">Request</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Adds a request to the back of the queue. </p>
+<p>Enqueues a copy of a request.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r</td><td><a class="el" href="classRequest.html" title="Represents a single web request.">Request</a> to enqueue. </td></tr>
+    <tr><td class="paramname">request</td><td><a class="el" href="classRequest.html" title="Represents a single incoming web request.">Request</a> to enqueue.</td></tr>
+    <tr><td class="paramname">request</td><td><a class="el" href="classRequest.html" title="Represents a single incoming web request.">Request</a> to add. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a10a42d2206616c80907517d3c6ed8245" name="a10a42d2206616c80907517d3c6ed8245"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10a42d2206616c80907517d3c6ed8245">&#9670;&#160;</a></span>isEmpty()</h2>
+<a id="a64c8b54cc30da887d61663e44dece1d5" name="a64c8b54cc30da887d61663e44dece1d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64c8b54cc30da887d61663e44dece1d5">&#9670;&#160;</a></span>isEmpty()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool RequestQueue::isEmpty </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Checks whether the queue contains no requests. </p>
+<p>Checks whether the queue is empty. </p>
+<p>Checks whether the queue contains no requests.</p>
 <dl class="section return"><dt>Returns</dt><dd>True if empty; otherwise false. </dd></dl>
 
 </div>
 </div>
-<a id="a35b8c47e9856ded7d779f299a6052ce0" name="a35b8c47e9856ded7d779f299a6052ce0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35b8c47e9856ded7d779f299a6052ce0">&#9670;&#160;</a></span>size()</h2>
+<a id="aa65378257b8f1ad89bd77b96ededea37" name="aa65378257b8f1ad89bd77b96ededea37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa65378257b8f1ad89bd77b96ededea37">&#9670;&#160;</a></span>size()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RequestQueue::size </td>
+          <td class="memname">std::size_t RequestQueue::size </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Gets the number of queued requests. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current queue size. </dd></dl>
+<p>Gets the number of pending requests. </p>
+<p>Returns the current queue length.</p>
+<dl class="section return"><dt>Returns</dt><dd>Number of requests in the queue.</dd>
+<dd>
+Number of queued requests. </dd></dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="main_8cpp.html">main.cpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="requestqueue_8h_source.html">requestqueue.h</a></li>
+<li><a class="el" href="requestqueue_8cpp.html">requestqueue.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

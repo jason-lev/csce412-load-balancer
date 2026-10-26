@@ -93,7 +93,10 @@ $(function(){initNavTree('utils_8h.html','',''); });
   <div class="headertitle"><div class="title">utils.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;random&gt;</code><br />
+
+<p>Declares random generation utilities for the simulation.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for utils.h:</div>
 <div class="dyncontent">
@@ -112,15 +115,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a4493259bd15c41b7b632586676455ffa" id="r_a4493259bd15c41b7b632586676455ffa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4493259bd15c41b7b632586676455ffa">init_random</a> ()</td></tr>
 <tr class="memdesc:a4493259bd15c41b7b632586676455ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the random number generator.  <br /></td></tr>
 <tr class="memitem:aa146b5d50eddaf1ab2ed7a726fe51920" id="r_aa146b5d50eddaf1ab2ed7a726fe51920"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa146b5d50eddaf1ab2ed7a726fe51920">random_ip</a> ()</td></tr>
-<tr class="memdesc:aa146b5d50eddaf1ab2ed7a726fe51920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a randomized dotted-decimal IP-like address.  <br /></td></tr>
+<tr class="memdesc:aa146b5d50eddaf1ab2ed7a726fe51920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random IPv4 address.  <br /></td></tr>
 <tr class="memitem:a139641f5c5cb942c16919e358e262561" id="r_a139641f5c5cb942c16919e358e262561"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a139641f5c5cb942c16919e358e262561">random_job</a> ()</td></tr>
-<tr class="memdesc:a139641f5c5cb942c16919e358e262561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random request job type.  <br /></td></tr>
+<tr class="memdesc:a139641f5c5cb942c16919e358e262561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random job type.  <br /></td></tr>
 <tr class="memitem:a949c0efaf4c7ed087753d58d1603769a" id="r_a949c0efaf4c7ed087753d58d1603769a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a949c0efaf4c7ed087753d58d1603769a">random_req_time</a> (char job)</td></tr>
-<tr class="memdesc:a949c0efaf4c7ed087753d58d1603769a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random request processing duration.  <br /></td></tr>
+<tr class="memdesc:a949c0efaf4c7ed087753d58d1603769a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a processing duration.  <br /></td></tr>
 <tr class="memitem:ac66d2f1814cc687411bdb835e60efbdc" id="r_ac66d2f1814cc687411bdb835e60efbdc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac66d2f1814cc687411bdb835e60efbdc">random_percent</a> ()</td></tr>
-<tr class="memdesc:ac66d2f1814cc687411bdb835e60efbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer representing a percentage.  <br /></td></tr>
+<tr class="memdesc:ac66d2f1814cc687411bdb835e60efbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer from 0 through 99.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Declares random generation utilities for the simulation. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a4493259bd15c41b7b632586676455ffa" name="a4493259bd15c41b7b632586676455ffa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4493259bd15c41b7b632586676455ffa">&#9670;&#160;</a></span>init_random()</h2>
 
@@ -137,8 +142,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the random number generator. </p>
-<p>Seeds the Mersenne Twister engine using a value obtained from std::random_device and prints an initialization message.</p>
-<dl class="section note"><dt>Note</dt><dd>Call this function once before generating random values. </dd></dl>
+<p>Initializes the random number generator. </p>
 
 </div>
 </div>
@@ -157,10 +161,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a randomized dotted-decimal IP-like address. </p>
-<p>Generates four numeric components and joins them with periods. The first component is regenerated if it equals 10, 172, or 192.</p>
-<dl class="section return"><dt>Returns</dt><dd>A string containing four dot-separated numeric components.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The generated components range from 0 to 999, so this function does not guarantee a valid IPv4 address. Valid IPv4 octets must range from 0 to 255. </dd></dl>
+<p>Generates a random IPv4 address. </p>
+<dl class="section return"><dt>Returns</dt><dd>A valid dotted-decimal IPv4 address.</dd></dl>
+<p>Generates a random IPv4 address.</p>
+<dl class="section return"><dt>Returns</dt><dd>IPv4 address with four octets in the range 0-255. </dd></dl>
 
 </div>
 </div>
@@ -179,12 +183,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a random request job type. </p>
-<p>Randomly selects one of two job types:</p><ul>
-<li>'P'</li>
-<li>'S'</li>
-</ul>
-<dl class="section return"><dt>Returns</dt><dd>'P' or 'S', selected using the random number generator. </dd></dl>
+<p>Generates a random job type. </p>
+<dl class="section return"><dt>Returns</dt><dd>'S' for streaming or 'P' for processing.</dd></dl>
+<p>Generates a random job type.</p>
+<dl class="section return"><dt>Returns</dt><dd>'S' or 'P'. </dd></dl>
 
 </div>
 </div>
@@ -203,9 +205,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a random integer representing a percentage. </p>
-<p>Produces a value from 0 through 99, inclusive. This can be used to determine whether a probabilistic event should occur.</p>
-<dl class="section return"><dt>Returns</dt><dd>Random integer in the range [0, 99]. </dd></dl>
+<p>Generates a random integer from 0 through 99. </p>
+<dl class="section return"><dt>Returns</dt><dd>Random percentage value.</dd></dl>
+<p>Generates a random integer from 0 through 99.</p>
+<dl class="section return"><dt>Returns</dt><dd>Integer from 0 through 99. </dd></dl>
 
 </div>
 </div>
@@ -224,16 +227,23 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a random request processing duration. </p>
-<p>Produces a duration between 50 and 549 clock cycles, inclusive.</p>
+<p>Generates a processing duration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">job</td><td>Job type associated with the request.</td></tr>
+    <tr><td class="paramname">job</td><td>Job type associated with the request. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Random processing duration in clock cycles.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The current implementation does not use the job parameter to influence processing duration. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Duration in clock cycles.</dd></dl>
+<p>Generates a processing duration.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">job</td><td>Type of job being generated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Duration between 50 and 549 clock cycles.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This implementation uses the same duration range for both job types. Adjust this function if streaming and processing requests should have different durations. </dd></dl>
 
 </div>
 </div>

@@ -94,8 +94,10 @@ $(function(){initNavTree('classRequest.html','','classRequest-members'); });
 </div><!--header-->
 <div class="contents">
 
-<p>Represents a single web request.  
+<p>Represents a single incoming web request.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="request_8h_source.html">request.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -106,21 +108,18 @@ Public Member Functions</h2></td></tr>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa83b5e8331e7f13fb5742984f955d0c1" id="r_aa83b5e8331e7f13fb5742984f955d0c1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa83b5e8331e7f13fb5742984f955d0c1">ipIn</a> {}</td></tr>
 <tr class="memitem:af585c7ba4ed14c760cf8d72b232091b4" id="r_af585c7ba4ed14c760cf8d72b232091b4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af585c7ba4ed14c760cf8d72b232091b4">ipOut</a> {}</td></tr>
-<tr class="memitem:ad49a0f18615ea50f9a11cd2494c93044" id="r_ad49a0f18615ea50f9a11cd2494c93044"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad49a0f18615ea50f9a11cd2494c93044">jobType</a> {'A'}</td></tr>
+<tr class="memitem:ad49a0f18615ea50f9a11cd2494c93044" id="r_ad49a0f18615ea50f9a11cd2494c93044"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad49a0f18615ea50f9a11cd2494c93044">jobType</a> {'P'}</td></tr>
 <tr class="memitem:a3cfb576ed0b5e08612f3de8bc7cd72e2" id="r_a3cfb576ed0b5e08612f3de8bc7cd72e2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cfb576ed0b5e08612f3de8bc7cd72e2">time</a> {1}</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a single web request. </p>
-<p>Stores the source and destination IP addresses, job type, and processing time required by the request. </p>
+<div class="textblock"><p>Represents a single incoming web request. </p>
+<p>Job type 'S' represents streaming, and 'P' represents processing. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a944fac8255a7bef61eb17dd68ffcaad1" name="a944fac8255a7bef61eb17dd68ffcaad1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a944fac8255a7bef61eb17dd68ffcaad1">&#9670;&#160;</a></span>generateRequest()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classRequest.html">Request</a> Request::generateRequest </td>
@@ -129,15 +128,13 @@ Public Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Generates a randomized request. </p>
-<dl class="section return"><dt>Returns</dt><dd>A fully initialized <a class="el" href="classRequest.html" title="Represents a single web request.">Request</a>. </dd></dl>
+<p>Generates randomized IP addresses, job type, and duration.</p>
+<dl class="section return"><dt>Returns</dt><dd>A newly generated request.</dd>
+<dd>
+A fully initialized request. </dd></dl>
 
 </div>
 </div>
@@ -153,7 +150,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Source IP address. </p>
+<p>Source IPv4 address. </p>
 
 </div>
 </div>
@@ -168,7 +165,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Destination IP address. </p>
+<p>Destination IPv4 address. </p>
 
 </div>
 </div>
@@ -179,11 +176,11 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char Request::jobType {'A'}</td>
+          <td class="memname">char Request::jobType {'P'}</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a class="el" href="classRequest.html" title="Represents a single web request.">Request</a> job type. </p>
+<p><a class="el" href="classRequest.html" title="Represents a single incoming web request.">Request</a> type: 'S' for streaming or 'P' for processing. </p>
 
 </div>
 </div>
@@ -198,12 +195,13 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Required processing time in clock cycles. </p>
+<p>Processing duration in clock cycles. </p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="main_8cpp.html">main.cpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="request_8h_source.html">request.h</a></li>
+<li><a class="el" href="request_8cpp.html">request.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

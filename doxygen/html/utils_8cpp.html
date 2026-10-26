@@ -94,10 +94,11 @@ $(function(){initNavTree('utils_8cpp.html','',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Implements utility functions for random request generation.  
+<p>Implements random generation utilities.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;random&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for utils.cpp:</div>
 <div class="dyncontent">
@@ -107,26 +108,18 @@ Include dependency graph for utils.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4493259bd15c41b7b632586676455ffa" id="r_a4493259bd15c41b7b632586676455ffa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4493259bd15c41b7b632586676455ffa">init_random</a> ()</td></tr>
-<tr class="memdesc:a4493259bd15c41b7b632586676455ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the random number generator.  <br /></td></tr>
+<tr class="memdesc:a4493259bd15c41b7b632586676455ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the random number generator.  <br /></td></tr>
 <tr class="memitem:aa146b5d50eddaf1ab2ed7a726fe51920" id="r_aa146b5d50eddaf1ab2ed7a726fe51920"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa146b5d50eddaf1ab2ed7a726fe51920">random_ip</a> ()</td></tr>
-<tr class="memdesc:aa146b5d50eddaf1ab2ed7a726fe51920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a randomized dotted-decimal IP-like address.  <br /></td></tr>
+<tr class="memdesc:aa146b5d50eddaf1ab2ed7a726fe51920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a valid random IPv4 address.  <br /></td></tr>
 <tr class="memitem:a139641f5c5cb942c16919e358e262561" id="r_a139641f5c5cb942c16919e358e262561"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a139641f5c5cb942c16919e358e262561">random_job</a> ()</td></tr>
-<tr class="memdesc:a139641f5c5cb942c16919e358e262561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random request job type.  <br /></td></tr>
+<tr class="memdesc:a139641f5c5cb942c16919e358e262561"><td class="mdescLeft">&#160;</td><td class="mdescRight">Randomly chooses a streaming or processing job.  <br /></td></tr>
 <tr class="memitem:a949c0efaf4c7ed087753d58d1603769a" id="r_a949c0efaf4c7ed087753d58d1603769a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a949c0efaf4c7ed087753d58d1603769a">random_req_time</a> (char job)</td></tr>
-<tr class="memdesc:a949c0efaf4c7ed087753d58d1603769a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random request processing duration.  <br /></td></tr>
+<tr class="memdesc:a949c0efaf4c7ed087753d58d1603769a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random request duration.  <br /></td></tr>
 <tr class="memitem:ac66d2f1814cc687411bdb835e60efbdc" id="r_ac66d2f1814cc687411bdb835e60efbdc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac66d2f1814cc687411bdb835e60efbdc">random_percent</a> ()</td></tr>
-<tr class="memdesc:ac66d2f1814cc687411bdb835e60efbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer representing a percentage.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a27de1100ae7f921a666692b1bfab7a58" id="r_a27de1100ae7f921a666692b1bfab7a58"><td class="memItemLeft" align="right" valign="top">std::random_device&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27de1100ae7f921a666692b1bfab7a58">rnd_device</a></td></tr>
-<tr class="memdesc:a27de1100ae7f921a666692b1bfab7a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Source of nondeterministic random seed values.  <br /></td></tr>
-<tr class="memitem:af59e326a7f19dfca99b65adc618b7c64" id="r_af59e326a7f19dfca99b65adc618b7c64"><td class="memItemLeft" align="right" valign="top">std::mt19937&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af59e326a7f19dfca99b65adc618b7c64">mersenne_engine</a></td></tr>
-<tr class="memdesc:af59e326a7f19dfca99b65adc618b7c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mersenne Twister random number generator.  <br /></td></tr>
+<tr class="memdesc:ac66d2f1814cc687411bdb835e60efbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random percentage value.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Implements utility functions for random request generation. </p>
-<p>Provides random number initialization and helper functions for generating IP addresses, job types, request processing times, and percentage values for the load balancer simulation. </p>
+<div class="textblock"><p>Implements random generation utilities. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a4493259bd15c41b7b632586676455ffa" name="a4493259bd15c41b7b632586676455ffa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4493259bd15c41b7b632586676455ffa">&#9670;&#160;</a></span>init_random()</h2>
@@ -143,9 +136,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Seeds the random number generator. </p>
 <p>Initializes the random number generator. </p>
-<p>Seeds the Mersenne Twister engine using a value obtained from std::random_device and prints an initialization message.</p>
-<dl class="section note"><dt>Note</dt><dd>Call this function once before generating random values. </dd></dl>
 
 </div>
 </div>
@@ -164,10 +156,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a randomized dotted-decimal IP-like address. </p>
-<p>Generates four numeric components and joins them with periods. The first component is regenerated if it equals 10, 172, or 192.</p>
-<dl class="section return"><dt>Returns</dt><dd>A string containing four dot-separated numeric components.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The generated components range from 0 to 999, so this function does not guarantee a valid IPv4 address. Valid IPv4 octets must range from 0 to 255. </dd></dl>
+<p>Generates a valid random IPv4 address. </p>
+<p>Generates a random IPv4 address.</p>
+<dl class="section return"><dt>Returns</dt><dd>IPv4 address with four octets in the range 0-255. </dd></dl>
 
 </div>
 </div>
@@ -186,12 +177,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a random request job type. </p>
-<p>Randomly selects one of two job types:</p><ul>
-<li>'P'</li>
-<li>'S'</li>
-</ul>
-<dl class="section return"><dt>Returns</dt><dd>'P' or 'S', selected using the random number generator. </dd></dl>
+<p>Randomly chooses a streaming or processing job. </p>
+<p>Generates a random job type.</p>
+<dl class="section return"><dt>Returns</dt><dd>'S' or 'P'. </dd></dl>
 
 </div>
 </div>
@@ -210,9 +198,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a random integer representing a percentage. </p>
-<p>Produces a value from 0 through 99, inclusive. This can be used to determine whether a probabilistic event should occur.</p>
-<dl class="section return"><dt>Returns</dt><dd>Random integer in the range [0, 99]. </dd></dl>
+<p>Generates a random percentage value. </p>
+<p>Generates a random integer from 0 through 99.</p>
+<dl class="section return"><dt>Returns</dt><dd>Integer from 0 through 99. </dd></dl>
 
 </div>
 </div>
@@ -231,51 +219,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates a random request processing duration. </p>
-<p>Produces a duration between 50 and 549 clock cycles, inclusive.</p>
+<p>Generates a random request duration. </p>
+<p>Generates a processing duration.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">job</td><td>Job type associated with the request.</td></tr>
+    <tr><td class="paramname">job</td><td>Type of job being generated. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Random processing duration in clock cycles.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The current implementation does not use the job parameter to influence processing duration. </dd></dl>
-
-</div>
-</div>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="af59e326a7f19dfca99b65adc618b7c64" name="af59e326a7f19dfca99b65adc618b7c64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af59e326a7f19dfca99b65adc618b7c64">&#9670;&#160;</a></span>mersenne_engine</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::mt19937 mersenne_engine</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Mersenne Twister random number generator. </p>
-<p>Supplies random values used by the simulation utility functions. Initialize this generator by calling <a class="el" href="#a4493259bd15c41b7b632586676455ffa" title="Initializes the random number generator.">init_random()</a> before using the other random utility functions. </p>
-
-</div>
-</div>
-<a id="a27de1100ae7f921a666692b1bfab7a58" name="a27de1100ae7f921a666692b1bfab7a58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27de1100ae7f921a666692b1bfab7a58">&#9670;&#160;</a></span>rnd_device</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::random_device rnd_device</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Source of nondeterministic random seed values. </p>
-<p>Used to seed the Mersenne Twister random number generator. </p>
+<dl class="section return"><dt>Returns</dt><dd>Duration between 50 and 549 clock cycles.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This implementation uses the same duration range for both job types. Adjust this function if streaming and processing requests should have different durations. </dd></dl>
 
 </div>
 </div>

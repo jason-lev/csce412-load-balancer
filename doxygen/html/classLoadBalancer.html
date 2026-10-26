@@ -94,54 +94,128 @@ $(function(){initNavTree('classLoadBalancer.html','','classLoadBalancer-members'
 </div><!--header-->
 <div class="contents">
 
-<p>Manages request distribution, servers, scaling, and logging.  
+<p>Manages a request queue and dedicated web server pool.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="loadbalancer_8h_source.html">loadbalancer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abe875e987658e464f67e7c8e6ddc5faa" id="r_abe875e987658e464f67e7c8e6ddc5faa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe875e987658e464f67e7c8e6ddc5faa">addRequest</a> (<a class="el" href="classRequest.html">Request</a> r)</td></tr>
-<tr class="memdesc:abe875e987658e464f67e7c8e6ddc5faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a request to the queue.  <br /></td></tr>
+<tr class="memitem:ad2feb287a4251198d5976dc54cb3db3a" id="r_ad2feb287a4251198d5976dc54cb3db3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2feb287a4251198d5976dc54cb3db3a">initializeServers</a> (int count, char type)</td></tr>
+<tr class="memdesc:ad2feb287a4251198d5976dc54cb3db3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the pool with a job type and server count.  <br /></td></tr>
+<tr class="memitem:abba1a1fcaa67e79e9aee94e903e1458c" id="r_abba1a1fcaa67e79e9aee94e903e1458c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abba1a1fcaa67e79e9aee94e903e1458c">addRequest</a> (const <a class="el" href="classRequest.html">Request</a> &amp;request)</td></tr>
+<tr class="memdesc:abba1a1fcaa67e79e9aee94e903e1458c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a request to this pool's queue.  <br /></td></tr>
 <tr class="memitem:a21fe985c018f2ebeb9e4b1b3cc0289fa" id="r_a21fe985c018f2ebeb9e4b1b3cc0289fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21fe985c018f2ebeb9e4b1b3cc0289fa">distributeRequests</a> ()</td></tr>
 <tr class="memdesc:a21fe985c018f2ebeb9e4b1b3cc0289fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns queued requests to available servers.  <br /></td></tr>
-<tr class="memitem:a19678319ef0e45f567ca654b070b5c10" id="r_a19678319ef0e45f567ca654b070b5c10"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19678319ef0e45f567ca654b070b5c10">updateClock</a> ()</td></tr>
-<tr class="memdesc:a19678319ef0e45f567ca654b070b5c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances every server and the simulation clock.  <br /></td></tr>
-<tr class="memitem:a2942c899a31e5c94908311c0e60f3afd" id="r_a2942c899a31e5c94908311c0e60f3afd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2942c899a31e5c94908311c0e60f3afd">runSimulation</a> ()</td></tr>
-<tr class="memdesc:a2942c899a31e5c94908311c0e60f3afd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads configuration and executes the simulation.  <br /></td></tr>
+<tr class="memitem:a0be32d55c5e10d1fd42486be9c3c5d3e" id="r_a0be32d55c5e10d1fd42486be9c3c5d3e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0be32d55c5e10d1fd42486be9c3c5d3e">updateClock</a> (int cycle)</td></tr>
+<tr class="memdesc:a0be32d55c5e10d1fd42486be9c3c5d3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances all servers by one cycle.  <br /></td></tr>
+<tr class="memitem:ab75da3606f4f2875d22423bbc39a554a" id="r_ab75da3606f4f2875d22423bbc39a554a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab75da3606f4f2875d22423bbc39a554a">adjustCapacity</a> (int cycle, int cooldown)</td></tr>
+<tr class="memdesc:ab75da3606f4f2875d22423bbc39a554a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adjusts server capacity according to queue size.  <br /></td></tr>
+<tr class="memitem:a445e289ead97407a91a01733fac9a841" id="r_a445e289ead97407a91a01733fac9a841"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a445e289ead97407a91a01733fac9a841">getJobType</a> () const</td></tr>
+<tr class="memdesc:a445e289ead97407a91a01733fac9a841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the job type handled by this pool.  <br /></td></tr>
+<tr class="memitem:a00efb8ad34475fb172cc1073b83536e0" id="r_a00efb8ad34475fb172cc1073b83536e0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00efb8ad34475fb172cc1073b83536e0">getAccepted</a> () const</td></tr>
+<tr class="memdesc:a00efb8ad34475fb172cc1073b83536e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of accepted requests.  <br /></td></tr>
+<tr class="memitem:a2e48c8d3653919146c1ecc1ed61ba190" id="r_a2e48c8d3653919146c1ecc1ed61ba190"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e48c8d3653919146c1ecc1ed61ba190">getCompleted</a> () const</td></tr>
+<tr class="memdesc:a2e48c8d3653919146c1ecc1ed61ba190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of completed requests.  <br /></td></tr>
+<tr class="memitem:abe077ac95a20c23c98dd63c7c6fd9733" id="r_abe077ac95a20c23c98dd63c7c6fd9733"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe077ac95a20c23c98dd63c7c6fd9733">getQueueSize</a> () const</td></tr>
+<tr class="memdesc:abe077ac95a20c23c98dd63c7c6fd9733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of requests waiting in the queue.  <br /></td></tr>
+<tr class="memitem:a77a110ed5e4f07da95094a9d24a68fbf" id="r_a77a110ed5e4f07da95094a9d24a68fbf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77a110ed5e4f07da95094a9d24a68fbf">getBusyServers</a> () const</td></tr>
+<tr class="memdesc:a77a110ed5e4f07da95094a9d24a68fbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of servers currently processing requests.  <br /></td></tr>
+<tr class="memitem:a7c1f129e89e79234b04b75657f317163" id="r_a7c1f129e89e79234b04b75657f317163"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c1f129e89e79234b04b75657f317163">getOutstandingRequests</a> () const</td></tr>
+<tr class="memdesc:a7c1f129e89e79234b04b75657f317163"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of outstanding requests.  <br /></td></tr>
+<tr class="memitem:a74ec51bb60c26bd9511e4df254752e83" id="r_a74ec51bb60c26bd9511e4df254752e83"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74ec51bb60c26bd9511e4df254752e83">getPeakQueue</a> () const</td></tr>
+<tr class="memdesc:a74ec51bb60c26bd9511e4df254752e83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum observed queue size.  <br /></td></tr>
+<tr class="memitem:a88b34682d21f11aa763efcf8598c3325" id="r_a88b34682d21f11aa763efcf8598c3325"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88b34682d21f11aa763efcf8598c3325">getServerCount</a> () const</td></tr>
+<tr class="memdesc:a88b34682d21f11aa763efcf8598c3325"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current number of active servers.  <br /></td></tr>
+<tr class="memitem:a063b3f6d08996bb9ebd7ed24c428e06c" id="r_a063b3f6d08996bb9ebd7ed24c428e06c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a063b3f6d08996bb9ebd7ed24c428e06c">getInitialServers</a> () const</td></tr>
+<tr class="memdesc:a063b3f6d08996bb9ebd7ed24c428e06c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the initial server count.  <br /></td></tr>
+<tr class="memitem:acd457edb3102a139afe3e165b6ce1379" id="r_acd457edb3102a139afe3e165b6ce1379"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd457edb3102a139afe3e165b6ce1379">getServersAdded</a> () const</td></tr>
+<tr class="memdesc:acd457edb3102a139afe3e165b6ce1379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of servers added.  <br /></td></tr>
+<tr class="memitem:ab381289974f0f85ebe8612d86675ba61" id="r_ab381289974f0f85ebe8612d86675ba61"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab381289974f0f85ebe8612d86675ba61">getServersRemoved</a> () const</td></tr>
+<tr class="memdesc:ab381289974f0f85ebe8612d86675ba61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of servers removed.  <br /></td></tr>
+<tr class="memitem:a873e0782f6c1dae23af22de9de6e005e" id="r_a873e0782f6c1dae23af22de9de6e005e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a873e0782f6c1dae23af22de9de6e005e">getScaleDownDeferred</a> () const</td></tr>
+<tr class="memdesc:a873e0782f6c1dae23af22de9de6e005e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of deferred scale-down attempts.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Manages request distribution, servers, scaling, and logging. </p>
-<p>The simulation generates an initial queue and random arrivals, rejects blocked IP addresses, distributes requests to idle servers, and dynamically scales the server pool based on queue size. </p>
+<div class="textblock"><p>Manages a request queue and dedicated web server pool. </p>
+<p>Each instance accepts only one job type: 'S' for streaming or 'P' for processing. Server scaling is performed independently for each instance. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="abe875e987658e464f67e7c8e6ddc5faa" name="abe875e987658e464f67e7c8e6ddc5faa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe875e987658e464f67e7c8e6ddc5faa">&#9670;&#160;</a></span>addRequest()</h2>
+<a id="abba1a1fcaa67e79e9aee94e903e1458c" name="abba1a1fcaa67e79e9aee94e903e1458c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba1a1fcaa67e79e9aee94e903e1458c">&#9670;&#160;</a></span>addRequest()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void LoadBalancer::addRequest </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classRequest.html">Request</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="classRequest.html">Request</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Adds a request to the queue. </p>
+<p>Adds a request to this pool's queue. </p>
+<p>Enqueues a request for this pool.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r</td><td><a class="el" href="classRequest.html" title="Represents a single web request.">Request</a> to add. </td></tr>
+    <tr><td class="paramname">request</td><td><a class="el" href="classRequest.html" title="Represents a single incoming web request.">Request</a> to enqueue. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>If the request type does not match.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td><a class="el" href="classRequest.html" title="Represents a single incoming web request.">Request</a> to enqueue. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab75da3606f4f2875d22423bbc39a554a" name="ab75da3606f4f2875d22423bbc39a554a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab75da3606f4f2875d22423bbc39a554a">&#9670;&#160;</a></span>adjustCapacity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string LoadBalancer::adjustCapacity </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cycle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cooldown</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adjusts server capacity according to queue size. </p>
+<p>Scales the pool according to its pending queue size.</p>
+<p>Adds one server if the queue exceeds 80 requests per server. Removes one idle server if the queue falls below 50 requests per server, provided at least one server remains.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cycle</td><td>Current simulation cycle. </td></tr>
+    <tr><td class="paramname">cooldown</td><td>Minimum cycles between scaling actions. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Event description, or an empty string if no action occurred.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cycle</td><td>Current simulation cycle. </td></tr>
+    <tr><td class="paramname">cooldown</td><td>Minimum cycles between scaling actions. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Description of the scaling action, or an empty string. </dd></dl>
 
 </div>
 </div>
@@ -150,9 +224,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void LoadBalancer::distributeRequests </td>
@@ -161,96 +232,339 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Assigns queued requests to available servers. </p>
-<p>Each available server receives at most one request. Requests are assigned in FIFO order. </p>
+<p>Assigns pending requests to available servers.</p>
+<p>Each server receives at most one request. Requests are removed from the queue in FIFO order. </p>
 
 </div>
 </div>
-<a id="a2942c899a31e5c94908311c0e60f3afd" name="a2942c899a31e5c94908311c0e60f3afd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2942c899a31e5c94908311c0e60f3afd">&#9670;&#160;</a></span>runSimulation()</h2>
+<a id="a00efb8ad34475fb172cc1073b83536e0" name="a00efb8ad34475fb172cc1073b83536e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00efb8ad34475fb172cc1073b83536e0">&#9670;&#160;</a></span>getAccepted()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void LoadBalancer::runSimulation </td>
+          <td class="memname">int LoadBalancer::getAccepted </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Loads configuration and executes the simulation. </p>
-<p>Configuration keys: initial_servers, simulation_cycles, arrival_percent, scale_cooldown, blocked_ranges, logging_mode.</p>
-<p>Verbose mode records significant events. Quiet mode records only the starting and ending summaries. </p>
-<p>Trims whitespace from both ends of a string. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">s</td><td>String to modify.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Prints and logs a summary line. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>Text to display and record.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Prints and logs an event only in verbose mode. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>Event description.</td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Gets the number of accepted requests. </p>
+<p>Returns the accepted request count. </p>
 
 </div>
 </div>
-<a id="a19678319ef0e45f567ca654b070b5c10" name="a19678319ef0e45f567ca654b070b5c10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19678319ef0e45f567ca654b070b5c10">&#9670;&#160;</a></span>updateClock()</h2>
+<a id="a77a110ed5e4f07da95094a9d24a68fbf" name="a77a110ed5e4f07da95094a9d24a68fbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77a110ed5e4f07da95094a9d24a68fbf">&#9670;&#160;</a></span>getBusyServers()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LoadBalancer::getBusyServers </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of servers currently processing requests. </p>
+<p>Counts servers that are currently busy.</p>
+<dl class="section return"><dt>Returns</dt><dd>Number of busy servers. </dd></dl>
+
+</div>
+</div>
+<a id="a2e48c8d3653919146c1ecc1ed61ba190" name="a2e48c8d3653919146c1ecc1ed61ba190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e48c8d3653919146c1ecc1ed61ba190">&#9670;&#160;</a></span>getCompleted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LoadBalancer::getCompleted </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of completed requests. </p>
+<p>Returns the completed request count. </p>
+
+</div>
+</div>
+<a id="a063b3f6d08996bb9ebd7ed24c428e06c" name="a063b3f6d08996bb9ebd7ed24c428e06c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063b3f6d08996bb9ebd7ed24c428e06c">&#9670;&#160;</a></span>getInitialServers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LoadBalancer::getInitialServers </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the initial server count. </p>
+<p>Returns the initial server count. </p>
+
+</div>
+</div>
+<a id="a445e289ead97407a91a01733fac9a841" name="a445e289ead97407a91a01733fac9a841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a445e289ead97407a91a01733fac9a841">&#9670;&#160;</a></span>getJobType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char LoadBalancer::getJobType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the job type handled by this pool. </p>
+<p>Returns the job type handled by this pool. </p>
+
+</div>
+</div>
+<a id="a7c1f129e89e79234b04b75657f317163" name="a7c1f129e89e79234b04b75657f317163"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c1f129e89e79234b04b75657f317163">&#9670;&#160;</a></span>getOutstandingRequests()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t LoadBalancer::getOutstandingRequests </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of outstanding requests. </p>
+<p>Counts queued and in-flight requests.</p>
+<dl class="section return"><dt>Returns</dt><dd>Queued requests plus requests being processed.</dd>
+<dd>
+Total number of outstanding requests. </dd></dl>
+
+</div>
+</div>
+<a id="a74ec51bb60c26bd9511e4df254752e83" name="a74ec51bb60c26bd9511e4df254752e83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74ec51bb60c26bd9511e4df254752e83">&#9670;&#160;</a></span>getPeakQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t LoadBalancer::getPeakQueue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the maximum observed queue size. </p>
+<p>Returns the peak observed queue size. </p>
+
+</div>
+</div>
+<a id="abe077ac95a20c23c98dd63c7c6fd9733" name="abe077ac95a20c23c98dd63c7c6fd9733"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe077ac95a20c23c98dd63c7c6fd9733">&#9670;&#160;</a></span>getQueueSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t LoadBalancer::getQueueSize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of requests waiting in the queue. </p>
+<p>Returns the number of queued requests. </p>
+
+</div>
+</div>
+<a id="a873e0782f6c1dae23af22de9de6e005e" name="a873e0782f6c1dae23af22de9de6e005e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a873e0782f6c1dae23af22de9de6e005e">&#9670;&#160;</a></span>getScaleDownDeferred()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LoadBalancer::getScaleDownDeferred </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of deferred scale-down attempts. </p>
+<p>Returns the number of deferred scale-down attempts. </p>
+
+</div>
+</div>
+<a id="a88b34682d21f11aa763efcf8598c3325" name="a88b34682d21f11aa763efcf8598c3325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88b34682d21f11aa763efcf8598c3325">&#9670;&#160;</a></span>getServerCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t LoadBalancer::getServerCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the current number of active servers. </p>
+<p>Returns the active server count. </p>
+
+</div>
+</div>
+<a id="acd457edb3102a139afe3e165b6ce1379" name="acd457edb3102a139afe3e165b6ce1379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd457edb3102a139afe3e165b6ce1379">&#9670;&#160;</a></span>getServersAdded()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LoadBalancer::getServersAdded </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of servers added. </p>
+<p>Returns the number of servers added. </p>
+
+</div>
+</div>
+<a id="ab381289974f0f85ebe8612d86675ba61" name="ab381289974f0f85ebe8612d86675ba61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab381289974f0f85ebe8612d86675ba61">&#9670;&#160;</a></span>getServersRemoved()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LoadBalancer::getServersRemoved </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of servers removed. </p>
+<p>Returns the number of servers removed. </p>
+
+</div>
+</div>
+<a id="ad2feb287a4251198d5976dc54cb3db3a" name="ad2feb287a4251198d5976dc54cb3db3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2feb287a4251198d5976dc54cb3db3a">&#9670;&#160;</a></span>initializeServers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LoadBalancer::initializeServers </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>count</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>type</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes the pool with a job type and server count. </p>
+<p>Initializes a dedicated server pool.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Initial number of servers; minimum is one. </td></tr>
+    <tr><td class="paramname">type</td><td>Accepted job type: 'S' or 'P'. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>If type is neither 'S' nor 'P'.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Initial server count. </td></tr>
+    <tr><td class="paramname">type</td><td>Job type accepted by the pool ('S' or 'P'). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0be32d55c5e10d1fd42486be9c3c5d3e" name="a0be32d55c5e10d1fd42486be9c3c5d3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0be32d55c5e10d1fd42486be9c3c5d3e">&#9670;&#160;</a></span>updateClock()</h2>
+
+<div class="memitem">
+<div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">int LoadBalancer::updateClock </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>cycle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Advances every server and the simulation clock. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of requests completed during this clock cycle.</dd></dl>
-<p>Completion events are counted directly from processRequest(), so the result does not depend on comparing busy-server counts. </p>
+<p>Advances all servers by one cycle. </p>
+<p>Advances each server by one simulation cycle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cycle</td><td>Current simulation cycle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of requests completed during this cycle.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cycle</td><td>Current simulation cycle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of requests that completed during this cycle. </dd></dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="main_8cpp.html">main.cpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="loadbalancer_8h_source.html">loadbalancer.h</a></li>
+<li><a class="el" href="loadbalancer_8cpp.html">loadbalancer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

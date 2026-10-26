@@ -94,24 +94,30 @@ $(function(){initNavTree('classWebServer.html','','classWebServer-members'); });
 </div><!--header-->
 <div class="contents">
 
-<p>Simulates a server processing one request at a time.  
+<p>Processes one request at a time.  
  <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="webserver_8h_source.html">webserver.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5c7c5b78faf7aaf2c98b780e0b0dc53a" id="r_a5c7c5b78faf7aaf2c98b780e0b0dc53a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c7c5b78faf7aaf2c98b780e0b0dc53a">assignRequest</a> (<a class="el" href="classRequest.html">Request</a> r)</td></tr>
-<tr class="memdesc:a5c7c5b78faf7aaf2c98b780e0b0dc53a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a request if the server is available.  <br /></td></tr>
+<tr class="memitem:a5338e2af3cd0bf102a0ca87ba040d8fc" id="r_a5338e2af3cd0bf102a0ca87ba040d8fc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5338e2af3cd0bf102a0ca87ba040d8fc">WebServer</a> (int id=0)</td></tr>
+<tr class="memdesc:a5338e2af3cd0bf102a0ca87ba040d8fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an idle server.  <br /></td></tr>
+<tr class="memitem:aa8967b848f2cbc246453957f6cbfc1a7" id="r_aa8967b848f2cbc246453957f6cbfc1a7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8967b848f2cbc246453957f6cbfc1a7">assignRequest</a> (const <a class="el" href="classRequest.html">Request</a> &amp;request)</td></tr>
+<tr class="memdesc:aa8967b848f2cbc246453957f6cbfc1a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a request to an idle server.  <br /></td></tr>
 <tr class="memitem:a17212110a60daab0d1d99d048c09dabd" id="r_a17212110a60daab0d1d99d048c09dabd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a17212110a60daab0d1d99d048c09dabd">processRequest</a> ()</td></tr>
-<tr class="memdesc:a17212110a60daab0d1d99d048c09dabd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances processing by one clock cycle.  <br /></td></tr>
-<tr class="memitem:a6facc54cbb034d850b16ef48ccaef27c" id="r_a6facc54cbb034d850b16ef48ccaef27c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6facc54cbb034d850b16ef48ccaef27c">isAvailable</a> ()</td></tr>
-<tr class="memdesc:a6facc54cbb034d850b16ef48ccaef27c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the server can accept a request.  <br /></td></tr>
+<tr class="memdesc:a17212110a60daab0d1d99d048c09dabd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances request processing by one clock cycle.  <br /></td></tr>
+<tr class="memitem:a2739c1973665a9fd920dce691a12b9e5" id="r_a2739c1973665a9fd920dce691a12b9e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2739c1973665a9fd920dce691a12b9e5">isAvailable</a> () const</td></tr>
+<tr class="memdesc:a2739c1973665a9fd920dce691a12b9e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the server is idle.  <br /></td></tr>
+<tr class="memitem:ac5aaa7e3f088fe55e57405b25095f0a1" id="r_ac5aaa7e3f088fe55e57405b25095f0a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5aaa7e3f088fe55e57405b25095f0a1">getServerId</a> () const</td></tr>
+<tr class="memdesc:ac5aaa7e3f088fe55e57405b25095f0a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets this server's identifier.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Simulates a server processing one request at a time. </p>
-<p>A server starts idle. Each call to <a class="el" href="#a17212110a60daab0d1d99d048c09dabd" title="Advances processing by one clock cycle.">processRequest()</a> advances the current request by one clock cycle. </p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a5c7c5b78faf7aaf2c98b780e0b0dc53a" name="a5c7c5b78faf7aaf2c98b780e0b0dc53a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c7c5b78faf7aaf2c98b780e0b0dc53a">&#9670;&#160;</a></span>assignRequest()</h2>
+<div class="textblock"><p>Processes one request at a time. </p>
+<p>A server begins idle. Each processing call advances the active request by one cycle. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5338e2af3cd0bf102a0ca87ba040d8fc" name="a5338e2af3cd0bf102a0ca87ba040d8fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5338e2af3cd0bf102a0ca87ba040d8fc">&#9670;&#160;</a></span>WebServer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -120,54 +126,107 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void WebServer::assignRequest </td>
+          <td class="memname">WebServer::WebServer </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classRequest.html">Request</a></td>          <td class="paramname"><span class="paramname"><em>r</em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>id</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel explicit">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Assigns a request if the server is available. </p>
+<p>Constructs an idle server. </p>
+<p>Constructs a server in the idle state.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">r</td><td><a class="el" href="classRequest.html" title="Represents a single web request.">Request</a> to process. </td></tr>
+    <tr><td class="paramname">id</td><td>Server identifier.</td></tr>
+    <tr><td class="paramname">id</td><td>Identifier for this server. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a6facc54cbb034d850b16ef48ccaef27c" name="a6facc54cbb034d850b16ef48ccaef27c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6facc54cbb034d850b16ef48ccaef27c">&#9670;&#160;</a></span>isAvailable()</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aa8967b848f2cbc246453957f6cbfc1a7" name="aa8967b848f2cbc246453957f6cbfc1a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8967b848f2cbc246453957f6cbfc1a7">&#9670;&#160;</a></span>assignRequest()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool WebServer::assignRequest </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classRequest.html">Request</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>request</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Assigns a request to an idle server. </p>
+<p>Assigns a request if the server is available.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td><a class="el" href="classRequest.html" title="Represents a single incoming web request.">Request</a> to process. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if assigned; false if the server is busy.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">request</td><td><a class="el" href="classRequest.html" title="Represents a single incoming web request.">Request</a> to process. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if assigned successfully; otherwise false. </dd></dl>
+
+</div>
+</div>
+<a id="ac5aaa7e3f088fe55e57405b25095f0a1" name="ac5aaa7e3f088fe55e57405b25095f0a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5aaa7e3f088fe55e57405b25095f0a1">&#9670;&#160;</a></span>getServerId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int WebServer::getServerId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets this server's identifier. </p>
+<p>Returns the server identifier.</p>
+<dl class="section return"><dt>Returns</dt><dd>Server ID. </dd></dl>
+
+</div>
+</div>
+<a id="a2739c1973665a9fd920dce691a12b9e5" name="a2739c1973665a9fd920dce691a12b9e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2739c1973665a9fd920dce691a12b9e5">&#9670;&#160;</a></span>isAvailable()</h2>
+
+<div class="memitem">
+<div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">bool WebServer::isAvailable </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Checks whether the server can accept a request. </p>
-<dl class="section return"><dt>Returns</dt><dd>True when idle; otherwise false. </dd></dl>
+<p>Checks whether the server is idle. </p>
+<p>Checks whether the server can accept a request.</p>
+<dl class="section return"><dt>Returns</dt><dd>True if available; otherwise false.</dd>
+<dd>
+True if idle; otherwise false. </dd></dl>
 
 </div>
 </div>
@@ -176,9 +235,6 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool WebServer::processRequest </td>
@@ -187,20 +243,19 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Advances processing by one clock cycle. </p>
-<dl class="section return"><dt>Returns</dt><dd>True exactly once when a request finishes during this call; false if no request finishes. </dd></dl>
+<p>Advances request processing by one clock cycle. </p>
+<p>Processes one clock cycle of the active request.</p>
+<dl class="section return"><dt>Returns</dt><dd>True exactly when a request completes during this call.</dd></dl>
+<p>A completed request makes the server idle and produces exactly one completion event.</p>
+<dl class="section return"><dt>Returns</dt><dd>True if the request completed; otherwise false. </dd></dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="main_8cpp.html">main.cpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="webserver_8h_source.html">webserver.h</a></li>
+<li><a class="el" href="webserver_8cpp.html">webserver.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

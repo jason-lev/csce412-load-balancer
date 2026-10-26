@@ -126,21 +126,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Adds an IP address or CIDR range to the block list. </p>
-<p>Adds an IPv4 address or CIDR range to the firewall block list.</p>
+<p>Adds an IPv4 address or CIDR range to the firewall.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">range</td><td>IPv4 address or CIDR range, such as "192.168.1.0/24".</td></tr>
+    <tr><td class="paramname">range</td><td>Range to block. </td></tr>
   </table>
   </dd>
 </dl>
-<p>The supplied range is stored and checked against incoming IP addresses whenever <a class="el" href="#a4ebf2a722eab7991108526c58e388753" title="Checks whether an IP address is blocked.">isBlocked()</a> is called.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">range</td><td>IPv4 address or CIDR range to block.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a4ebf2a722eab7991108526c58e388753" title="Checks whether an IP address is blocked.">Firewall::isBlocked()</a> </dd></dl>
 
 </div>
 </div>
@@ -160,7 +153,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks whether an IP address is blocked. </p>
-<p>Checks whether an IPv4 address is blocked by the firewall.</p>
+<p>Checks an address against every configured blocked range.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ip</td><td>IPv4 address to check. </td></tr>
@@ -168,15 +161,13 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True if the address matches a blocked range; false otherwise.</dd></dl>
-<p>Iterates through all configured blocked ranges. If the supplied address matches any range, the function immediately returns true.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ip</td><td>IPv4 address to check.</td></tr>
+    <tr><td class="paramname">ip</td><td>Address to check. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the address matches a blocked range; false otherwise.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#a814c637f075753e5451ca9ef6196ace9" title="Adds an IP address or CIDR range to the block list.">Firewall::addBlockedRange()</a> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if any range matches; otherwise false. </dd></dl>
 
 </div>
 </div>

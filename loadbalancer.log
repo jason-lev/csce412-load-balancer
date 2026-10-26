@@ -1,19 +1,39 @@
-=== Load Balancer Simulation ===
+=== Master Load Balancer: Starting Summary ===
 Logging mode: quiet
-Initial servers: 20
-Runtime cycles: 100000
-Initial queue target: 2000
-Initial requests accepted: 2000
+Streaming servers: 10
+Processing servers: 10
+Initial request queue sizes (streaming + processing): 2000
+Task time range: 50-550
+Initial streaming requests accepted: 962
+Initial processing requests accepted: 1038
 Initial requests blocked: 0
-=== Simulation Summary ===
-Total clock cycles: 100000
-Requests generated: 12122
-Requests accepted: 12122
+=== Master Load Balancer: Ending Summary ===
+Total cycles: 100000
+Requests generated: 3955
+Requests accepted: 3955
 Requests blocked: 0
-Requests completed: 12122
-Requests still queued: 0
-Peak queue size: 2000
-Final active servers: 1
-Servers added: 2
-Servers removed: 21
-Scale-down attempts deferred: 0
+Requests with invalid job types: 0
+Requests completed: 3595
+Requests queued or processing: 360
+--- Streaming Pool ---
+Requests accepted: 1936
+Requests completed: 1765
+Requests queued: 168
+Requests processing: 3
+Peak queue: 962
+Initial servers: 10
+Active servers: 3
+Servers added: 6
+Servers removed: 13
+Deferred scale-downs: 4246
+--- Processing Pool ---
+Requests accepted: 2019
+Requests completed: 1830
+Requests queued: 186
+Requests processing: 3
+Peak queue: 1038
+Initial servers: 10
+Active servers: 3
+Servers added: 3
+Servers removed: 10
+Deferred scale-downs: 1588

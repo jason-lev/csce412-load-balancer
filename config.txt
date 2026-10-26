@@ -1,15 +1,23 @@
-# Default server count and runtime
-initial_servers=5
-simulation_cycles=1000
+# Initial dedicated server pools
+initial_streaming_servers=10
+initial_processing_servers=10
 
-# Chance of generating a request on each cycle, from 0 to 100
-arrival_percent=10
+# Simulation length
+simulation_cycles=100000
 
-# Minimum cycles between scaling checks
+# Probability of a new request on each cycle (0-100)
+arrival_percent=2
+
+# Minimum number of cycles between scaling decisions per pool
 scale_cooldown=10
 
-# Comma-separated IPv4 addresses or CIDR ranges
+# Firewall rules: individual addresses or CIDR ranges
 blocked_ranges=192.168.1.0/24,10.0.0.5/32
+# blocked_ranges=192.168.1.0/24,10.0.0.5/32,50.0.0.0/7,52.0.0.0/6,56.0.0.0/5,64.0.0.0/2,128.0.0.0/2,192.0.0.0/3,224.0.0.0/4,240.0.0.0/5,248.0.0.0/6,252.0.0.0/7,254.0.0.0/8,255.0.0.0/32
 
-# verbose or quiet
-logging_mode=verbose
+# verbose logs significant events; quiet prints summaries only
+logging_mode=quiet
+
+# Task processing time range, in clock cycles
+min_task_time=50
+max_task_time=550

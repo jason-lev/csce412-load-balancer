@@ -1,18 +1,29 @@
-CC = g++
-CFLAGS = -Wall -Werror
 
-all: load-balancer
-load-balancer: main.o utils.o firewall.o
-	$(CC) $(CFLAGS) -o load-balancer main.o utils.o firewall.o
+CXX = g++
+CXXFLAGS = -std=c++17 -Wall -Werror -pedantic
 
-main.o: main.cpp
-	$(CC) $(CFLAGS) -c main.cpp
+TARGET = load-balancer
 
-utils.o: utils.cpp
-	$(CC) $(CFLAGS) -c utils.cpp
+SOURCES = main.cpp \
+          request.cpp \
+          requestqueue.cpp \
+          webserver.cpp \
+          loadbalancer.cpp \
+          masterloadbalancer.cpp \
+          firewall.cpp \
+          utils.cpp
 
-firewall.o: firewall.cpp
-	$(CC) $(CFLAGS) -c firewall.cpp
+OBJECTS = $(SOURCES:.cpp=.o)
+
+all: $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(OBJECTS)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f load-balancer *.o
+	rm -f $(TARGET) *.o
+
+.PHONY: all clean
