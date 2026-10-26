@@ -99,6 +99,11 @@ $(function(){initNavTree('utils_8cpp.html','',''); });
 <div class="textblock"><code>#include &quot;<a class="el" href="utils_8h_source.html">utils.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;random&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for utils.cpp:</div>
 <div class="dyncontent">
@@ -108,7 +113,7 @@ Include dependency graph for utils.cpp:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a4493259bd15c41b7b632586676455ffa" id="r_a4493259bd15c41b7b632586676455ffa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4493259bd15c41b7b632586676455ffa">init_random</a> ()</td></tr>
-<tr class="memdesc:a4493259bd15c41b7b632586676455ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the random number generator.  <br /></td></tr>
+<tr class="memdesc:a4493259bd15c41b7b632586676455ffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seeds the random number generator and saves local copies of the min/max task time..  <br /></td></tr>
 <tr class="memitem:aa146b5d50eddaf1ab2ed7a726fe51920" id="r_aa146b5d50eddaf1ab2ed7a726fe51920"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa146b5d50eddaf1ab2ed7a726fe51920">random_ip</a> ()</td></tr>
 <tr class="memdesc:aa146b5d50eddaf1ab2ed7a726fe51920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a valid random IPv4 address.  <br /></td></tr>
 <tr class="memitem:a139641f5c5cb942c16919e358e262561" id="r_a139641f5c5cb942c16919e358e262561"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a139641f5c5cb942c16919e358e262561">random_job</a> ()</td></tr>
@@ -117,6 +122,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:a949c0efaf4c7ed087753d58d1603769a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random request duration.  <br /></td></tr>
 <tr class="memitem:ac66d2f1814cc687411bdb835e60efbdc" id="r_ac66d2f1814cc687411bdb835e60efbdc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac66d2f1814cc687411bdb835e60efbdc">random_percent</a> ()</td></tr>
 <tr class="memdesc:ac66d2f1814cc687411bdb835e60efbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random percentage value.  <br /></td></tr>
+<tr class="memitem:accfc72cdf960347ee0ad5dbfc87e8efe" id="r_accfc72cdf960347ee0ad5dbfc87e8efe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accfc72cdf960347ee0ad5dbfc87e8efe">trim</a> (std::string &amp;value)</td></tr>
+<tr class="memdesc:accfc72cdf960347ee0ad5dbfc87e8efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trims leading and trailing whitespace from a string.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac7aaf75f93c85fec353083723c4788c3" id="r_ac7aaf75f93c85fec353083723c4788c3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7aaf75f93c85fec353083723c4788c3">min_task_time</a> = 50</td></tr>
+<tr class="memitem:a186b2741230dc4b208b374557d9e3624" id="r_a186b2741230dc4b208b374557d9e3624"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a186b2741230dc4b208b374557d9e3624">max_task_time</a> = 550</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Implements random generation utilities. </p>
@@ -136,7 +148,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Seeds the random number generator. </p>
+<p>Seeds the random number generator and saves local copies of the min/max task time.. </p>
 <p>Initializes the random number generator. </p>
 
 </div>
@@ -229,6 +241,62 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Duration between 50 and 549 clock cycles.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This implementation uses the same duration range for both job types. Adjust this function if streaming and processing requests should have different durations. </dd></dl>
+
+</div>
+</div>
+<a id="accfc72cdf960347ee0ad5dbfc87e8efe" name="accfc72cdf960347ee0ad5dbfc87e8efe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accfc72cdf960347ee0ad5dbfc87e8efe">&#9670;&#160;</a></span>trim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void trim </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trims leading and trailing whitespace from a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>String to modify. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a186b2741230dc4b208b374557d9e3624" name="a186b2741230dc4b208b374557d9e3624"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a186b2741230dc4b208b374557d9e3624">&#9670;&#160;</a></span>max_task_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int max_task_time = 550</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Local copy of the max task time. </p>
+
+</div>
+</div>
+<a id="ac7aaf75f93c85fec353083723c4788c3" name="ac7aaf75f93c85fec353083723c4788c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7aaf75f93c85fec353083723c4788c3">&#9670;&#160;</a></span>min_task_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int min_task_time = 50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Local copy of the min task time. </p>
 
 </div>
 </div>

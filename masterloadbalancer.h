@@ -45,6 +45,9 @@ private:
     /** Controls verbose or quiet output. */
     std::string loggingMode{"verbose"};
 
+    /** Controls console output. */
+    std::string printingMode{"off"};
+
     /**
      * @brief Routes a request after checking the firewall.
      * @param request Request to route.

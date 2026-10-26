@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['updateclock_0',['updateClock',['../classLoadBalancer.html#a0be32d55c5e10d1fd42486be9c3c5d3e',1,'LoadBalancer']]]
+  ['trim_0',['trim',['../utils_8cpp.html#accfc72cdf960347ee0ad5dbfc87e8efe',1,'trim(std::string &amp;value):&#160;utils.cpp'],['../utils_8h.html#accfc72cdf960347ee0ad5dbfc87e8efe',1,'trim(std::string &amp;value):&#160;utils.cpp']]]
 ];

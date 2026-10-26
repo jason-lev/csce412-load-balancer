@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['webserver_0',['WebServer',['../classWebServer.html#a5338e2af3cd0bf102a0ca87ba040d8fc',1,'WebServer']]]
+  ['updateclock_0',['updateClock',['../classLoadBalancer.html#a0be32d55c5e10d1fd42486be9c3c5d3e',1,'LoadBalancer']]]
 ];

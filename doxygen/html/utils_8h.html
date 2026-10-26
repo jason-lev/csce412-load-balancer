@@ -122,6 +122,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a949c0efaf4c7ed087753d58d1603769a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a processing duration.  <br /></td></tr>
 <tr class="memitem:ac66d2f1814cc687411bdb835e60efbdc" id="r_ac66d2f1814cc687411bdb835e60efbdc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac66d2f1814cc687411bdb835e60efbdc">random_percent</a> ()</td></tr>
 <tr class="memdesc:ac66d2f1814cc687411bdb835e60efbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer from 0 through 99.  <br /></td></tr>
+<tr class="memitem:accfc72cdf960347ee0ad5dbfc87e8efe" id="r_accfc72cdf960347ee0ad5dbfc87e8efe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accfc72cdf960347ee0ad5dbfc87e8efe">trim</a> (std::string &amp;value)</td></tr>
+<tr class="memdesc:accfc72cdf960347ee0ad5dbfc87e8efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trims leading and trailing whitespace from a string.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Declares random generation utilities for the simulation. </p>
@@ -244,6 +246,31 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Duration between 50 and 549 clock cycles.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>This implementation uses the same duration range for both job types. Adjust this function if streaming and processing requests should have different durations. </dd></dl>
+
+</div>
+</div>
+<a id="accfc72cdf960347ee0ad5dbfc87e8efe" name="accfc72cdf960347ee0ad5dbfc87e8efe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accfc72cdf960347ee0ad5dbfc87e8efe">&#9670;&#160;</a></span>trim()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void trim </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Trims leading and trailing whitespace from a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>String to modify. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

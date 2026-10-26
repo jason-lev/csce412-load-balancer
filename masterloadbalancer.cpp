@@ -68,6 +68,7 @@ void MasterLoadBalancer::runSimulation()
 
     std::vector<std::string> blockedRanges;
     loggingMode = "verbose";
+    printingMode = "off";
 
     // Load configuration; built-in defaults remain if the file is absent.
     std::ifstream config("config.txt");
@@ -110,6 +111,14 @@ void MasterLoadBalancer::runSimulation()
                 else
                     std::cerr
                         << "Invalid logging_mode; using verbose.\n";
+            }
+            else if (key == "printing_mode")
+            {
+                if (value == "off" || value == "on")
+                    printingMode = value;
+                else
+                    std::cerr
+                        << "Invalid printing_mode; using off.\n";
             }
             else if (key == "blocked_ranges")
             {
@@ -174,7 +183,8 @@ void MasterLoadBalancer::runSimulation()
      */
     auto report = [&](const std::string& message)
     {
-        std::cout << message << '\n';
+        if(printingMode == "on")
+            std::cout << message << '\n';
 
         if (log)
             log << message << '\n';
@@ -188,7 +198,8 @@ void MasterLoadBalancer::runSimulation()
     {
         if (loggingMode == "verbose")
         {
-            std::cout << message << '\n';
+            if(printingMode == "on")
+                std::cout << message << '\n';
 
             if (log)
                 log << message << '\n';

@@ -1,0 +1,37 @@
+=== Master Load Balancer: Starting Summary ===
+Logging mode: quiet
+Streaming servers: 10
+Processing servers: 10
+Initial request queue sizes (streaming + processing): 2000
+Task time range: 50-550
+Initial streaming requests accepted: 965
+Initial processing requests accepted: 1035
+Initial requests blocked: 0
+=== Master Load Balancer: Ending Summary ===
+Total cycles: 100000
+Requests generated: 7969
+Requests accepted: 7969
+Requests blocked: 0
+Requests with invalid job types: 0
+Requests completed: 6978
+Requests queued or processing: 991
+--- Streaming Pool ---
+Requests accepted: 3972
+Requests completed: 3476
+Requests queued: 487
+Requests processing: 9
+Peak queue: 965
+Initial servers: 10
+Active servers: 9
+Servers added: 2
+Servers removed: 3
+--- Processing Pool ---
+Requests accepted: 3997
+Requests completed: 3502
+Requests queued: 487
+Requests processing: 8
+Peak queue: 1035
+Initial servers: 10
+Active servers: 8
+Servers added: 3
+Servers removed: 5
